@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour
+public class ButtonFunctionality : MonoBehaviour
 {
     public Button startButton;
     public Button helpButton;
