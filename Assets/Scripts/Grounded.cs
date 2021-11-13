@@ -6,23 +6,23 @@ public class Grounded : MonoBehaviour
 {
     GameObject Player;
 
-    private void Start()
+    void Start()
     {
         Player = gameObject.transform.parent.gameObject;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.collider.tag == "Tilemap")
+        if (other.tag == "Ground")
         {
-           // Player.GetComponent<CharacterController>().isGrounded = true;
+            Player.GetComponent<CharacterController>().isGrounded = true;
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (collision.collider.tag == "Tilemap")
+        if (other.tag == "Ground")
         {
-           // Player.GetComponent<CharacterController>().isGrounded = false;
+            Player.GetComponent<CharacterController>().isGrounded = false;
         }
     }
 }

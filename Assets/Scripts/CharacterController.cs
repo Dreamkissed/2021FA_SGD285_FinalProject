@@ -5,13 +5,14 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
 
-    Rigidbody2D rb;
+   // Rigidbody2D rb;
     public float moveSpeed = 5f;
+    public bool isGrounded = false;
     
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        //rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -24,7 +25,7 @@ public class CharacterController : MonoBehaviour
 
     void Jump()
     {
-        if(Input.GetKeyUp(KeyCode.UpArrow))
+        if(Input.GetButtonDown("Jump") && isGrounded == true)
         {
             gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0f, 5f), ForceMode2D.Impulse);
         }
