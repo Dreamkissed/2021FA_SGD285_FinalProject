@@ -14,6 +14,8 @@ public class PauseMenu : MonoBehaviour
     public Button mainMenuButton;
     public Button quitButton;
 
+    public AudioSource escapeKeyPress;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class PauseMenu : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            escapeKeyPress.Play();
             pausePanel.SetActive(true);
             Time.timeScale = 0;
         }
