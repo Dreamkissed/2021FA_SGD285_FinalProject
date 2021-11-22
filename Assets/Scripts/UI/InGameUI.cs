@@ -59,6 +59,8 @@ public class InGameUI : MonoBehaviour
         if(playerHealth <= 0)
         {
             gameOverPanel.SetActive(true);
+            gameOverSFX.Play();
+            gameOverSFX.Stop();
         }
     }
 }

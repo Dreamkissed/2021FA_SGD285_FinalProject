@@ -133,9 +133,11 @@ GameObject:
   m_Component:
   - component: {fileID: 23980463}
   - component: {fileID: 23980462}
-  - component: {fileID: 23980464}
   - component: {fileID: 23980465}
+  - component: {fileID: 23980468}
+  - component: {fileID: 23980464}
   - component: {fileID: 23980466}
+  - component: {fileID: 23980467}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -382,6 +384,121 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &23980467
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23980461}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 33048aeb7a6b18e42b1ecb473b6647e6, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &23980468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23980461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91cd1ef790149844592503219f73a367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startButton: {fileID: 0}
+  helpButton: {fileID: 0}
+  creditsButton: {fileID: 0}
+  backButton: {fileID: 0}
+  quitButton: {fileID: 0}
+  helpPanel: {fileID: 0}
+  creditsPanel: {fileID: 0}
 --- !u!1 &30760599
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,9 +2958,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 23980462}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: ResumeButton
+      - m_Target: {fileID: 23980468}
+        m_TargetAssemblyTypeName: ButtonFunctionality, Assembly-CSharp
+        m_MethodName: StartButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8088,7 +8205,7 @@ Tilemap:
   - m_RefCount: 3
     m_Data: {fileID: 11400000, guid: f4eee33bc760c3d4dbb0c10cf207e2cc, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 4beb954193296e84292f9718cebc11cf, type: 2}
+    m_Data: {fileID: 11400000, guid: f546d367f89d73149a8ac055abca2e6e, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 12f6d12442b72e24a8c12d26c4cb12e0, type: 2}
   - m_RefCount: 22
@@ -8137,7 +8254,7 @@ Tilemap:
   - m_RefCount: 3
     m_Data: {fileID: -2163653377654173005, guid: 4841719f908dc0c42a2ee4f8abf56508, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -6032823245736929995, guid: 4841719f908dc0c42a2ee4f8abf56508, type: 3}
+    m_Data: {fileID: -1787169274079991442, guid: 4841719f908dc0c42a2ee4f8abf56508, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1276384379020959897, guid: 4841719f908dc0c42a2ee4f8abf56508, type: 3}
   - m_RefCount: 22
@@ -8246,10 +8363,26 @@ CompositeCollider2D:
         Y: 65937500
       - X: 252187504
         Y: 70000000
-      - X: 171875008
+      - X: 180000100
         Y: 70000000
+      - X: 180000100
+        Y: 70000041
+      - X: 180000041
+        Y: 70000100
+      - X: 178437492
+        Y: 70000100
+      - X: 178437469
+        Y: 70000094
+      - X: 169999929
+        Y: 65625076
+      - X: 169999900
+        Y: 65625028
+      - X: 169999900
+        Y: 59999959
+      - X: 169999959
+        Y: 59999900
       - X: 170000000
-        Y: 68125000
+        Y: 59999900
       - X: 170000000
         Y: 0
       - X: 49062500
@@ -8339,6 +8472,12 @@ CompositeCollider2D:
       - X: 180000000
         Y: -10000000
       - X: 180000000
+        Y: 59999900
+      - X: 180000041
+        Y: 59999900
+      - X: 180000100
+        Y: 59999959
+      - X: 180000100
         Y: 60000000
       - X: 250000000
         Y: 60000000
@@ -8393,8 +8532,8 @@ CompositeCollider2D:
       - {x: 26, y: -3.9999704}
       - {x: 25.999987, y: 6.5937576}
       - {x: 25.218744, y: 7}
-      - {x: 17.187492, y: 6.999992}
-      - {x: 17, y: 6.8124895}
+      - {x: 17.84374, y: 7.0000067}
+      - {x: 16.99999, y: 6.5624866}
       - {x: 16.999971, y: 0}
       - {x: 4.9062424, y: -0.0000076}
       - {x: 4, y: -0.9062608}
@@ -8439,7 +8578,7 @@ CompositeCollider2D:
       - {x: 5, y: -1.9999708}
       - {x: 5.0000296, y: -1}
       - {x: 18, y: -0.99997073}
-      - {x: 18.000029, y: 6}
+      - {x: 18.00004, y: 6}
       - {x: 25, y: 5.9999704}
       - {x: 25.000029, y: -5}
       - {x: 40, y: -5.0000296}
