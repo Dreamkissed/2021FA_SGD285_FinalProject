@@ -5,14 +5,13 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
 
-   // Rigidbody2D rb;
     public float moveSpeed = 5f;
     public bool isGrounded = false;
     
     // Start is called before the first frame update
     void Start()
     {
-        //rb = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame
@@ -21,6 +20,18 @@ public class CharacterController : MonoBehaviour
         Jump();
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
         transform.position += movement * Time.deltaTime * moveSpeed;
+
+        // Flip the character
+        Vector3 characterScale = transform.localScale;
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            characterScale.x = -1;
+        }
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            characterScale.x = 1;
+        }
+        transform.localScale = characterScale;
     }
 
     void Jump()
