@@ -28,6 +28,8 @@ public class CharacterController : MonoBehaviour
     private bool isColliding = false;
     private bool hasKey = false;
 
+    public GameObject currentEnemy = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,7 +69,11 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && isColliding == true)
         {
             destroyedEnemySFX.Play();
-            Debug.Log("Enemy Destroyed");
+            if(currentEnemy != null)
+            {
+                Destroy(currentEnemy);
+                currentEnemy = null;
+            }
         }
     }
 
@@ -86,6 +92,7 @@ public class CharacterController : MonoBehaviour
         if (other.tag == "Enemy")
         {
             isColliding = true;
+            currentEnemy = other.gameObject;
 
             hurtSFX.Play();
             playerHealth -= enemyDamage;
@@ -120,6 +127,7 @@ public class CharacterController : MonoBehaviour
         if (other.tag == "Enemy")
         {
             isColliding = false;
+            currentEnemy = null;
         }
     }
 
