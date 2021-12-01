@@ -22,6 +22,7 @@ public class CharacterController : MonoBehaviour
     public AudioSource jumpSFX;
     public AudioSource hurtSFX;
     public AudioSource destroyedEnemySFX;
+    public AudioSource gainedHealthSFX;
 
     // BOOLS
     private bool isColliding = false;
@@ -88,6 +89,14 @@ public class CharacterController : MonoBehaviour
             hurtSFX.Play();
             playerHealth -= enemyDamage;
             playerHealthText.text = "Health: " + playerHealth.ToString();
+        }
+
+        if(other.tag == "Medkit" && playerHealth < 100)
+        {
+            gainedHealthSFX.Play();
+            playerHealth = 100;
+            playerHealthText.text = "Health: " + playerHealth.ToString();
+            other.gameObject.SetActive(false);
         }
     }
 
