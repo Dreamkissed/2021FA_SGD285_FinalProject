@@ -26,6 +26,7 @@ public class CharacterController : MonoBehaviour
 
     // BOOLS
     private bool isColliding = false;
+    private bool hasKey = false;
 
     // Start is called before the first frame update
     void Start()
@@ -82,21 +83,35 @@ public class CharacterController : MonoBehaviour
     // COLLISIONS
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Enemy")
+        if (other.tag == "Enemy")
         {
             isColliding = true;
-            
+
             hurtSFX.Play();
             playerHealth -= enemyDamage;
             playerHealthText.text = "Health: " + playerHealth.ToString();
         }
 
-        if(other.tag == "Medkit" && playerHealth < 100)
+        if (other.tag == "Medkit" && playerHealth < 100)
         {
             gainedHealthSFX.Play();
             playerHealth = 100;
             playerHealthText.text = "Health: " + playerHealth.ToString();
             other.gameObject.SetActive(false);
+        }
+        if (other.tag == "Key")
+        {
+            hasKey = true;
+            other.gameObject.SetActive(false);
+        }
+        if (other.tag == "Door" && hasKey != true)
+        {
+            Debug.Log("Don't have key");
+        }
+
+        if (other.tag == "Door" && hasKey == true)
+        {
+            Debug.Log("You have the key");
         }
     }
 
