@@ -11,8 +11,6 @@ public class CharacterController : MonoBehaviour
 
     // HEALTH VALUES
     private int playerHealth = 100;
-    private int playerDamage = 50;
-    private int enemyHealth = 50;
     private int enemyDamage = 10;
 
     // UI
@@ -22,6 +20,11 @@ public class CharacterController : MonoBehaviour
     // AUDIO
     public AudioSource gameOverSFX;
     public AudioSource jumpSFX;
+    public AudioSource hurtSFX;
+    public AudioSource destroyedEnemySFX;
+
+    // BOOLS
+    private bool isColliding = false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +60,13 @@ public class CharacterController : MonoBehaviour
             playerHealth -= enemyDamage;
             playerHealthText.text = "Health: " + playerHealth.ToString();
         }
+
+        // ATTACKING CONDITIONS
+        if (Input.GetKeyDown(KeyCode.F) && isColliding == true)
+        {
+            destroyedEnemySFX.Play();
+            Debug.Log("Enemy Destroyed");
+        }
     }
 
     void Jump()
@@ -68,15 +78,28 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    // COLLISIONS
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.tag == "Enemy")
         {
+            isColliding = true;
+            
+            hurtSFX.Play();
             playerHealth -= enemyDamage;
             playerHealthText.text = "Health: " + playerHealth.ToString();
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Enemy")
+        {
+            isColliding = false;
+        }
+    }
+
+    // GAME OVER
     void GameOver()
     {
         if (playerHealth <= 0)
