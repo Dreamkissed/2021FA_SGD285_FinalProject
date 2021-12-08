@@ -60,15 +60,8 @@ public class CharacterController : MonoBehaviour
 
         GameOver();
 
-        // TESTING PURPOSES
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            playerHealth -= enemyDamage;
-            playerHealthText.text = "Health: " + playerHealth.ToString();
-        }
-
         // ATTACKING CONDITIONS
-        if (Input.GetKeyDown(KeyCode.F) && isColliding == true)
+        if (Input.GetKeyDown(KeyCode.Q) && isColliding == true)
         {
             destroyedEnemySFX.Play();
             if(currentEnemy != null)
