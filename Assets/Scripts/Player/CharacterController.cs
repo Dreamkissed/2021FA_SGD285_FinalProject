@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CharacterController : MonoBehaviour
 {
@@ -26,13 +27,14 @@ public class CharacterController : MonoBehaviour
 
     // BOOLS
     private bool isColliding = false;
-    private bool hasKey = false;
 
     public GameObject currentEnemy = null;
+    public GameObject door;
 
     // Start is called before the first frame update
     void Start()
     {
+        door.SetActive(false);
         gameOverPanel.SetActive(false);
         playerHealthText.text = "Health: " + playerHealth.ToString();
     }
@@ -108,17 +110,12 @@ public class CharacterController : MonoBehaviour
         }
         if (other.tag == "Key")
         {
-            hasKey = true;
+            door.SetActive(true);
             other.gameObject.SetActive(false);
         }
-        if (other.tag == "Door" && hasKey != true)
+        if (other.tag == "Door")
         {
-            Debug.Log("Don't have key");
-        }
-
-        if (other.tag == "Door" && hasKey == true)
-        {
-            Debug.Log("You have the key");
+            //This will take you to the secret room in the game
         }
     }
 
