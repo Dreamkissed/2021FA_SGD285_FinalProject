@@ -108,7 +108,7 @@ public class CharacterController : MonoBehaviour
         }
         if (other.tag == "Door")
         {
-            //This will take you to the secret room in the game
+            SceneManager.LoadScene("SecretRoom");
         }
     }
 
