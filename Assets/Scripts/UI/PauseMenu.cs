@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
 
     public GameObject pausePanel;
+    public GameObject helpPanel;
 
     public Button resumeButton;
     public Button helpButton;
@@ -20,6 +21,7 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         pausePanel.SetActive(false);
+        helpPanel.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -41,7 +43,12 @@ public class PauseMenu : MonoBehaviour
 
     public void HelpButton()
     {
-        
+        helpPanel.SetActive(true);
+    }
+
+    public void BackButton()
+    {
+        helpPanel.SetActive(false);
     }
 
     public void MainMenuButton()
