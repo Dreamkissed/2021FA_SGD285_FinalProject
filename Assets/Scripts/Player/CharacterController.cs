@@ -17,6 +17,7 @@ public class CharacterController : MonoBehaviour
     // UI
     public Text playerHealthText;
     public GameObject gameOverPanel;
+    public GameObject winPanel;
 
     // AUDIO
     public AudioSource gameOverSFX;
@@ -24,6 +25,8 @@ public class CharacterController : MonoBehaviour
     public AudioSource hurtSFX;
     public AudioSource destroyedEnemySFX;
     public AudioSource gainedHealthSFX;
+    public AudioSource keyPickupSFX;
+    public AudioSource winSFX;
 
     // BOOLS
     private bool isColliding = false;
@@ -36,6 +39,7 @@ public class CharacterController : MonoBehaviour
     {
         door.SetActive(false);
         gameOverPanel.SetActive(false);
+        winPanel.SetActive(false);
         playerHealthText.text = "Health: " + playerHealth.ToString();
     }
 
@@ -104,11 +108,17 @@ public class CharacterController : MonoBehaviour
         if (other.tag == "Key")
         {
             door.SetActive(true);
+            keyPickupSFX.Play();
             other.gameObject.SetActive(false);
         }
         if (other.tag == "Door")
         {
             SceneManager.LoadScene("SecretRoom");
+        }
+        if (other.tag == "Win")
+        {
+            winPanel.SetActive(true);
+            winSFX.Play();
         }
     }
 

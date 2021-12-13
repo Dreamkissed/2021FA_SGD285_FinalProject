@@ -46,12 +46,6 @@ public class InGameUI : MonoBehaviour
             playerHealth -= enemyDamage;
             playerHealthText.text = "Health: " + playerHealth.ToString();
         }
-
-        // PLAYER COLLIDES WITH KEY
-        if (other.tag == "Key")
-        {
-
-        }
     }
 
     void GameOver()
